@@ -1,4 +1,4 @@
-# ThinkStraight - A bias-aware writing assistant powered by Gemini
+# ThinkStraight - A bias-aware writing assistant powered by Gemini AI
 
 ThinkStraight helps you write with clarity and fairness by detecting cognitive biases in your text and offering balanced, thoughtful rewrites. It also warns you when a message may be harmful or better left unsent.
 
