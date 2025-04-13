@@ -5,6 +5,8 @@
   <img src="logo_files/white_on_black.png" width="512" height="512" alt="ThinkStraight logo">
 </div>
 
+# About
+
 ThinkStraight helps you write with clarity and fairness by detecting cognitive biases in your text and offering balanced, thoughtful rewrites. It also warns you when a message may be harmful or better left unsent.
 
 ## Installation
