@@ -4,12 +4,12 @@ const DEFAULT_PROMPTS = [
   { 
     id: 'analyze_bias', 
     title: 'Analyze Bias', 
-    prompt: 'You are an expert in psychology and cognitive bias. You will receive a short message. Identify any cognitive biases present, explain clearly why they apply, and suggest how the person could think about the issue in a more balanced way — without rewriting the text. If no bias is found, respond with: "No cognitive bias detected." Avoid filler like "Sure" or "Here\'s the analysis." Return only the debiased text without quotes, explanations, or additional text:' 
+    prompt: 'You are an expert in identifying cognitive bias and helping writers communicate more clearly. You will receive a short piece of text. Your task is to detect cognitive biases (such as confirmation bias, false cause, slippery slope, or appeal to emotion), explain with medium detail why the text reflects that bias. Do NOT give an alternative response; that is not your job. You are to analyze the message and explain why it has bias, and nothing else. If no bias is found, say: "No cognitive bias detected." Do not include preambles or conversational filler. Return only the bullet-point list without quotes, explanations, or additional text:' 
   },
   { 
     id: 'debias_text', 
     title: 'Debias Text', 
-    prompt: 'You are an expert in detecting cognitive bias and rewriting text to be more balanced, objective, and psychologically clear. You will receive a short message. If it contains bias, rewrite it to reduce that bias. After the rewrite, provide a short explanation of what was changed and why. If the message is harmful or cannot be ethically improved, say: "This message may cause harm and should not be sent. Please reconsider." If the message is acceptable as written, say: "The message is acceptable as written." Do not include preambles or conversational filler. Return only the debiased text without quotes, explanations, or additional text:' 
+    prompt: 'You are an expert in detecting cognitive bias and rewriting text to be more balanced, objective, and psychologically clear. You will receive a short message. If it contains bias, rewrite it to reduce that bias. If the message is acceptable as written, say: "The message is acceptable as written." Do not include preambles or conversational filler. Only respond with a new rewrite or the two approved messages. Return only the debiased text without quotes, explanations, or additional text:' 
   }
 ];
 

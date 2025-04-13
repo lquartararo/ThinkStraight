@@ -7,24 +7,36 @@ function showEnhancedTextPopup(enhancedText) {
   const range = selection.getRangeAt(0);
   const rect = range.getBoundingClientRect();
   
+  // Get the background color at the popup position
+  const element = document.elementFromPoint(rect.left, rect.top);
+  const computedStyle = window.getComputedStyle(element);
+  const bgColor = computedStyle.backgroundColor;
+  
+  // Convert RGB to brightness value
+  const rgb = bgColor.match(/\d+/g);
+  const brightness = rgb ? (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000 : 255;
+  const isDarkBackground = brightness < 128;
+  
   // Create popup container
   const popup = document.createElement('div');
   popup.style.cssText = `
     position: fixed;
     top: ${rect.top}px;
     left: ${rect.right + 20}px;
-    background: white;
+    background: ${isDarkBackground ? 'rgba(0, 0, 0, 0.3)' : 'rgba(255, 255, 255, 0.3)'};
+    backdrop-filter: blur(8px) brightness(${isDarkBackground ? '0.8' : '1.2'});
+    -webkit-backdrop-filter: blur(8px) brightness(${isDarkBackground ? '0.8' : '1.2'});
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     z-index: 10000;
     max-width: 400px;
     max-height: 300px;
     overflow-y: auto;
     font-family: system-ui, -apple-system, sans-serif;
-    border: 1px solid #e5e7eb;
-    color-scheme: light;
-    color: black;
+    border: 1px solid ${isDarkBackground ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.4)'};
+    color-scheme: light dark;
+    color: ${isDarkBackground ? '#fff' : '#000'};
     isolation: isolate;
     cursor: move;
     user-select: none;
@@ -106,8 +118,9 @@ function showEnhancedTextPopup(enhancedText) {
     margin-right: 30px;
     font-size: 14px;
     line-height: 1.5;
-    color: black;
+    color: ${isDarkBackground ? '#fff' : '#000'};
     font-family: system-ui, -apple-system, sans-serif;
+    text-shadow: ${isDarkBackground ? '0 0 1px rgba(0, 0, 0, 0.5)' : '0 0 1px rgba(255, 255, 255, 0.5)'};
   `;
 
   // Add style element for markdown elements
@@ -115,15 +128,18 @@ function showEnhancedTextPopup(enhancedText) {
   style.textContent = `
     .thinkstraight-popup-content strong {
       font-weight: bold;
+      color: ${isDarkBackground ? '#fff' : '#000'};
     }
     .thinkstraight-popup-content em {
       font-style: italic;
+      color: ${isDarkBackground ? '#fff' : '#000'};
     }
     .thinkstraight-popup-content code {
       font-family: monospace;
-      background-color: #f0f0f0;
+      background-color: ${isDarkBackground ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
       padding: 2px 4px;
       border-radius: 3px;
+      color: ${isDarkBackground ? '#fff' : '#000'};
     }
   `;
   document.head.appendChild(style);
