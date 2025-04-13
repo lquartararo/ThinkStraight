@@ -1,0 +1,15 @@
+{
+  "name": "thinkstraight",
+  "version": "1.0",
+  "scripts": {
+    "css:watch": "npx tailwindcss -i src/libs/tw-input.css -o src/libs/tw-output.css --minify --watch",
+    "css:build": "npx tailwindcss -i src/libs/tw-input.css -o src/libs/tw-output.css --minify",
+    "build": "npm run css:build && node build.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
