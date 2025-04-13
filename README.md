@@ -7,7 +7,7 @@
 
 # About
 
-ThinkStraight helps you write with clarity and fairness by detecting cognitive biases in your text and offering balanced, thoughtful rewrites. It also warns you when a message may be harmful or better left unsent.
+ThinkStraight is a AI-based writing Assistant to help eliminate bias from social media platforms. It helps you write with clarity and fairness by detecting cognitive biases in your text and offering balanced, thoughtful rewrites. It also warns you when a message may be harmful or better left unsent. Currently, there's no software to efficiently detect bias amongst social media platfortms or its limited to a simple warning line. Our solution is to use Gemini 2.0 API to identify bias and create thoughtful rewrites.
 
 ## Installation
 
